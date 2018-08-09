@@ -1,3 +1,9 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
 /* 
  * File:   main.cpp
  * Author: hugo
@@ -6,29 +12,29 @@
  */
 
 #include <iostream>
-#include <math.h>
+#include <cmath>
 #include <sstream>
 #include <string>
 
-using namespace std;
 
 bool isPrime(int n)
 {
-    bool isprime = true;
-    for(int i=2; i<=sqrt(n); ++i)
+    for(int i = 2; i <= std::sqrt(n); ++i)
     {
-        if(n % i == 0) isprime = false;
+        if(n % i == 0)
+            return false;
     }
-    return isprime;
+    return true;
 }
 
-string GetDivides(int n)
+std::string GetDivides(int n)
 {
-    string str = "";
-    if(isPrime(n)) str = "prime!";
+    std::string str;
+    if(isPrime(n))
+        str = "prime!";
     else
     {
-    for(int i=2;i<n;++i)
+    for(int i = 2; i < n; ++i)
         {
             if(n % i == 0)
             {
@@ -41,47 +47,45 @@ string GetDivides(int n)
     return str;
 }
 
-string GetPrimeFactors(int n)
+std::string GetPrimeFactors(int n)
 {
-    string str = "";
+    std::stringstream ss;
     if(!isPrime(n))
     {
-        for(int i=2;i<=n;++i)
+        for(int i = 2; i <= n; ++i)
         {
             if(n % i == 0 )
             {
-
                 if(isPrime(i))
                 {
-                    int m = n;
-                    int x = 0;
+                    int m = n, x = 0;
                     while(m % i == 0)
                     {
-                        m = m / i;
+                        m /= i;
                         ++x;
                     }                    
-                    std::stringstream ss;
-                    ss << str << i << " pow " << x << "; ";
-                    str = ss.str();
+                    ss << i << " pow " << x << "; ";
                 }
             }
         }
     }
-    else str = "prime!";
-    return str;
+    else
+        return "prime!";
+    return ss.str();
 }
 
 int main()
 {
     int n;
-    cout << "Enter a number" << endl;
-    cin >> n;
+    std::cout << "Enter a number" << std::endl;
+    std::cin >> n;
     //if(!isPrime(n))
     {
-        cout << n << " is dividable by " << GetDivides(n) << endl;
-        cout << "Prime factory of " << n << " : " << GetPrimeFactors(n) << endl;
+        std::cout << n << " is dividable by " << std::GetDivides(n) << std::endl;
+        std::cout << "Prime factory of " << n << " : " << std::GetPrimeFactors(n) << std::endl;
     }
-    //else cout << n << " is prime!" << endl;
+    //else
+    //  std::cout << n << " is prime!" << std::endl;
 
     return 0;
 }
