@@ -14,7 +14,7 @@
 
 bool isPrime(uint64_t n)
 {
-    for(int i = 2; i <= std::sqrt(n); ++i)
+    for(uint64_t i = 2; i <= std::sqrt(n); ++i)
     {
         if(n % i == 0)
             return false;
@@ -29,7 +29,7 @@ std::string GetDivides(uint64_t n)
         str = "prime!";
     else
     {
-    for(int i = 2; i < n; ++i)
+    for(uint64_t i = 2; i < n; ++i)
         {
             if(n % i == 0)
             {
@@ -47,13 +47,13 @@ std::string GetPrimeFactors(uint64_t n)
     std::stringstream ss;
     if(!isPrime(n))
     {
-        for(int i = 2; i <= n; ++i)
+        for(uint64_t i = 2; i <= n; ++i)
         {
             if(n % i == 0 )
             {
                 if(isPrime(i))
                 {
-                    int m = n, x = 0;
+                    uint64_t m = n, x = 0;
                     while(m % i == 0)
                     {
                         m /= i;
