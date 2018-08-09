@@ -3,5 +3,10 @@
 *.a
 *.exe
 *.bin
+CMakeCache.txt
+cmake_install.cmake
+*.ninja
+Makefile
+CMakeFiles
 ~*
 *~
