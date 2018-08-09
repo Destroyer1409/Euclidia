@@ -7,11 +7,12 @@
 
 #include <iostream>
 #include <cmath>
+#include <cstdint>
 #include <sstream>
 #include <string>
 
 
-bool isPrime(int n)
+bool isPrime(uint64_t n)
 {
     for(int i = 2; i <= std::sqrt(n); ++i)
     {
@@ -21,7 +22,7 @@ bool isPrime(int n)
     return true;
 }
 
-std::string GetDivides(int n)
+std::string GetDivides(uint64_t n)
 {
     std::string str;
     if(isPrime(n))
@@ -41,7 +42,7 @@ std::string GetDivides(int n)
     return str;
 }
 
-std::string GetPrimeFactors(int n)
+std::string GetPrimeFactors(uint64_t n)
 {
     std::stringstream ss;
     if(!isPrime(n))
@@ -70,7 +71,7 @@ std::string GetPrimeFactors(int n)
 
 int main()
 {
-    int n;
+    uint64_t n;
     std::cout << "Enter a number" << std::endl;
     std::cin >> n;
     //if(!isPrime(n))
