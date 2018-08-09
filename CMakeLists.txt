@@ -1,6 +1,8 @@
 cmake_minimum_required (VERSION 3.2.3 FATAL_ERROR)
 project (Euclidia)
 
-add_executable (Euclidia main.cpp)
+set (CMAKE_CXX_STANDARD 17)
+set (CMAKE_CXX_EXTENSIONS true)
+set (CMAKE_CXX_STANDARD_REQUIRED ON)
 
-add_compile_options (-O3 -Wall -Wextra)
+add_executable (Euclidia main.cpp)
