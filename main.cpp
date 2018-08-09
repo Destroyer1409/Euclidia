@@ -75,8 +75,8 @@ int main()
     std::cin >> n;
     //if(!isPrime(n))
     {
-        std::cout << n << " is dividable by " << std::GetDivides(n) << std::endl;
-        std::cout << "Prime factory of " << n << " : " << std::GetPrimeFactors(n) << std::endl;
+        std::cout << n << " is dividable by " << GetDivides(n) << std::endl;
+        std::cout << "Prime factory of " << n << " : " << GetPrimeFactors(n) << std::endl;
     }
     //else
     //  std::cout << n << " is prime!" << std::endl;
