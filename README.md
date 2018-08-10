@@ -20,7 +20,7 @@ cmake ..
 cmake --build .
 ```
 
-And then you get an executable called "Euclidia" that you can launch using in a terminal.
+And then you get an executable called "Euclidia" that you can launch using a terminal.
 
 ## Usage
 
