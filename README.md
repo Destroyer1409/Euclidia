@@ -34,7 +34,7 @@ Enter a number
 Prime factory of 456132 : 2 pow 2; 3 pow 1; 38011 pow 1;
 ```
 
-## Build with
+## Built with
 
-[Ninja](https://ninja-build.org) - Optimized build system
-[Cmake](https://cmake.org) - A cross-platform build tool
+* [Ninja](https://ninja-build.org) - Optimized build system
+* [Cmake](https://cmake.org) - A cross-platform build tool
