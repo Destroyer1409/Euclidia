@@ -34,7 +34,7 @@ Enter a number
 Prime factory of 456132 : 2 pow 2; 3 pow 1; 38011 pow 1;
 ```
 
-When I entered 54564156151 it took me over than 9 minutes to finish computing, whith an i7 4790k overclocked at 5.0GHz, so the (so anticipated) results are :
+When I entered 54564156151 it took me over than 9 minutes to finish computing, with an i7 4790k overclocked at 5.0GHz, and the (so anticipated) results are :
 
 ```
 54564156151 is dividable by 37; 1474706923; 
