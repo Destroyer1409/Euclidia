@@ -24,7 +24,7 @@ And then you get an executable called "Euclidia" that you can launch using a ter
 
 ## Usage
 
-In the same directory of the binary type :
+In the same directory of the binary, with a console type :
 
 ```
 $ ./Euclidia //this launch the program
