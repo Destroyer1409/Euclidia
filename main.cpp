@@ -10,11 +10,14 @@
 #include <cstdint>
 #include <sstream>
 #include <string>
+#include <utility>
 
 
 bool isPrime(uint64_t n)
 {
-    for(uint64_t i = 2; i <= std::sqrt(n); ++i)
+    if(n % 2 == 0) // Removes half of the iterations that would be used to get to a big prime
+            return false;
+    for(auto i = 3ull; i <= std::sqrt(n); i += 2ull)
     {
         if(n % i == 0)
             return false;
@@ -24,49 +27,44 @@ bool isPrime(uint64_t n)
 
 std::string GetDivides(uint64_t n)
 {
-    std::string str;
+    std::stringstream ss;
     if(isPrime(n))
-        str = "prime!";
+        return "prime!";
     else
     {
-    for(uint64_t i = 2; i < n; ++i)
+    for(auto i = 2ull; i < n; ++i)
         {
             if(n % i == 0)
-            {
-                std::stringstream ss;
-                ss << str << i << "; ";
-                str = ss.str();
-            }
+                ss << i << "; ";
         }
     }
-    return str;
+    return std::move(ss.str());
 }
 
 std::string GetPrimeFactors(uint64_t n)
 {
     std::stringstream ss;
-    if(!isPrime(n))
+    if(isPrime(n))
+        return "prime!";
+    
+    for(auto i = 2ull; i <= n; ++i)
     {
-        for(uint64_t i = 2; i <= n; ++i)
+        if(n % i == 0)
         {
-            if(n % i == 0 )
+            if(isPrime(i))
             {
-                if(isPrime(i))
+                uint64_t m = n, x = 0ull;
+                while(m % i == 0)
                 {
-                    uint64_t m = n, x = 0;
-                    while(m % i == 0)
-                    {
-                        m /= i;
-                        ++x;
-                    }                    
-                    ss << i << " pow " << x << "; ";
+                    m /= i;
+                    ++x;
+                }
+                ss << i << " pow " << x << "; ";
                 }
             }
         }
     }
-    else
-        return "prime!";
-    return ss.str();
+    return std::move(ss.str());
 }
 
 int main()
@@ -77,7 +75,7 @@ int main()
     //if(!isPrime(n))
     {
         std::cout << n << " is dividable by " << GetDivides(n) << std::endl;
-        std::cout << "Prime factory of " << n << " : " << GetPrimeFactors(n) << std::endl;
+        std::cout << "Prime factors of " << n << " : " << GetPrimeFactors(n) << std::endl;
     }
     //else
     //  std::cout << n << " is prime!" << std::endl;
